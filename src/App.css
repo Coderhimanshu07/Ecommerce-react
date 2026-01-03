@@ -1,0 +1,162 @@
+/* Header navlink CSS */
+
+/* .nav-link{
+    color: white !important ;
+} */
+
+body {
+  padding-top: 70px;
+}
+
+
+
+/* Smooth slide animation */
+.custom-offcanvas {
+  transition: transform 0.45s ease-in-out, opacity 0.35s ease;
+}
+
+/* Hover effect for links */
+.nav-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-hover:hover {
+  color: #ffffff !important;
+}
+
+/* Underline animation */
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -4px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+
+/* company logo slider */
+
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  height: 15vh;
+}
+
+.logo-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll-left 18s linear infinite;
+}
+
+.logo-track img {
+  height: 90px;      /* FIXED SIZE */
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Login / signup */
+
+/* shared wrapper */
+.auth-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* shared card */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+}
+
+/* button animation */
+.auth-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* login animation */
+.login-animate {
+  animation: slideFromLeft 0.7s ease forwards;
+}
+
+/* signup animation */
+.signup-animate {
+  animation: slideFromRight 0.7s ease forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.cart-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cart-left {
+  width: 50%;
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.cart-qty {
+  min-width: 120px;
+  justify-content: center;
+}

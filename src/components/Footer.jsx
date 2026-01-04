@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
       {/* FOOTER */}
-      <footer className="bg-dark text-light text-center py-3 fs-6 ">
+      <footer className="bg-dark text-light text-center py-3 fs-6">
         © 2025 Anshika Sewing Machine & Spare Parts Store
       </footer>
     </>

@@ -1,115 +1,164 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
+/* ======================
+   SVG CART LOGO
+====================== */
+const CartLogo = () => (
+  <svg
+    width="34"
+    height="34"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="cart-logo"
+  >
+    <path
+      d="M3 3H5L7 14H19L21 6H6"
+      stroke="#ff9800"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="9" cy="19" r="2" fill="#ff9800" />
+    <circle cx="17" cy="19" r="2" fill="#ff9800" />
+    <path
+      d="M9 6H21"
+      stroke="#ff9800"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+);
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
 
   const Navlinks = [
-    {
-      label: "Home",
-      link: ""
-    },
+    { label: "Home", link: "/" },
+    { label: "Products", link: "/product" },
+    { label: "Contact", link: "/contact" },
+    { label: "About", link: "/about" },
+  ];
 
-    {
-      label: "Products",
-      link: "product"
-    },
+  const activeClass = ({ isActive }) =>
+    `nav-link nav-hover ${isActive ? "active-link text-white" : "text-secondary"}`;
 
-    {
-      label: "Cart",
-      link: "cart"
-    },
+  const closeMenu = () => setIsOpen(false);
+  const openMenu = () => setIsOpen(true);
 
-    {
-      label: "Contact",
-      link: "contact"
-    },
-
-    {
-      label: "About",
-      link: "about"
-    }
-  ]
   return (
-    <header>
-      <nav className="navbar navbar-dark bg-black navbar-expand-lg py-3 fixed-top">
+    <>
+      {/* NAVBAR */}
+      <nav className="navbar navbar-dark bg-black fixed-top py-3">
         <div className="container-fluid">
 
           {/* LOGO */}
-          <Link className="navbar-brand" to="/">
-            <img src={logo} alt="Logo" style={{ width: "40px" }} />
+          <Link className="navbar-brand" to="/" onClick={closeMenu}>
+            <img src={logo} alt="Logo" width="40" />
           </Link>
 
-          {/* ICON HAMBURGER */}
+          {/* HAMBURGER */}
           <button
+            type="button"
             className="btn text-white d-lg-none fs-3"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#mobileMenu"
+            onClick={openMenu}
           >
             <i className="bi bi-list"></i>
           </button>
 
           {/* DESKTOP MENU */}
-          <div className="collapse navbar-collapse justify-content-center d-none d-lg-flex">
-            <ul className="navbar-nav gap-4">
-              {Navlinks.map((item, index) => (
-                <li className="nav-item" key={index}>
-                  <Link className="nav-link text-secondary nav-hover" to={`/${item.link}`}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* LOGIN (DESKTOP) */}
-          <div className="d-none d-lg-block">
-            <Link to="/login" className="btn btn-outline-warning rounded-pill px-4">
-              Login
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* OFFCANVAS */}
-      <div
-        className="offcanvas offcanvas-start custom-offcanvas bg-black text-white"
-        tabIndex="-1"
-        id="mobileMenu"
-      >
-        <div className="offcanvas-header d-flex align-items-center justify-content-between">
-          <h5 className="offcanvas-title">Menu</h5>
-          <button
-            type="button"
-            className="btn text-white fs-4"
-            data-bs-dismiss="offcanvas"
-          >
-            <i className="bi bi-x-lg"></i>
-          </button>
-        </div>
-
-        <div className="offcanvas-body">
-          <ul className="navbar-nav gap-3 text-center">
-            {["Home", "Product", "Cart", "Contact", "About"].map((item) => (
-              <li className="nav-item" key={item}>
-                <a className="nav-link text-secondary nav-hover" href="#">
-                  {item}
-                </a>
+          <ul className="navbar-nav d-none d-lg-flex flex-row gap-4 mx-auto">
+            {Navlinks.map((item) => (
+              <li key={item.label} className="nav-item">
+                <NavLink to={item.link} className={activeClass}>
+                  {item.label}
+                </NavLink>
               </li>
             ))}
           </ul>
 
-          <div className="text-center mt-4">
-            <button className="btn btn-warning rounded-pill px-4">
+          {/* CART LOGO + LOGIN (DESKTOP) */}
+          <div className="d-none d-lg-flex align-items-center gap-3">
+
+            {/* CART SVG LOGO */}
+            <Link to="/cart" title="Cart">
+              <CartLogo />
+            </Link>
+
+            {/* LOGIN */}
+            <Link
+              to="/login"
+              className="btn btn-outline-warning rounded-pill px-3"
+            >
               Login
-            </button>
+            </Link>
+
           </div>
         </div>
+      </nav>
+
+      {/* BACKDROP */}
+      {isOpen && (
+        <div
+          className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75"
+          style={{ zIndex: 1040 }}
+          onClick={closeMenu}
+        />
+      )}
+
+      {/* OFFCANVAS (MOBILE) */}
+      <div
+        className="position-fixed top-0 start-0 h-100 bg-black text-white p-4"
+        style={{
+          width: "260px",
+          zIndex: 1050,
+          transition: "transform 0.3s ease",
+          transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+        }}
+      >
+        <button
+          className="btn text-white fs-4 mb-4"
+          onClick={closeMenu}
+        >
+          <i className="bi bi-x-lg"></i>
+        </button>
+
+        {/* CART LOGO (MOBILE) */}
+        <div className="text-center mb-3">
+          <Link to="/cart" onClick={closeMenu}>
+            <CartLogo />
+          </Link>
+        </div>
+
+        <ul className="navbar-nav text-center gap-3">
+          {Navlinks.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.link}
+                onClick={closeMenu}
+                className={activeClass}
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="text-center mt-4">
+          <Link
+            to="/login"
+            onClick={closeMenu}
+            className="btn btn-warning rounded-pill px-4"
+          >
+            Login
+          </Link>
+        </div>
       </div>
-    </header>
+    </>
   );
 }
 

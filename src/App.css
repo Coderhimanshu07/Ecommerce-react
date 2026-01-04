@@ -1,12 +1,106 @@
-/* Header navlink CSS */
+/* Header CSS */
 
-/* .nav-link{
-    color: white !important ;
-} */
 
+/* new */
+
+/* ===== NAVBAR UNDERLINE HOVER EFFECT ===== */
+
+.nav-hover {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* underline hidden by default */
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffc107;
+  /* yellow underline */
+  transition: width 0.3s ease-in-out;
+}
+
+/* hover effect */
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* active route underline */
+.active-link::after {
+  width: 100%;
+}
+
+
+/* Cart logo */
+
+
+.cart-logo {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cart-logo:hover {
+  transform: scale(1.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+.nav-hover {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* underline base */
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+/* hover effect */
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK = HOVER JAISE HI DIKHE */
+.active-link {
+  color: white !important;
+}
+
+.active-link::after {
+  width: 100%;
+
+}
+
+
+/* Body CSS */
 body {
   padding-top: 70px;
 }
+
+
+
+
+
+
 
 
 
@@ -16,17 +110,17 @@ body {
 }
 
 /* Hover effect for links */
-.nav-hover {
+/* .nav-hover {
   position: relative;
   transition: color 0.3s ease;
 }
 
 .nav-hover:hover {
   color: #ffffff !important;
-}
+} */
 
 /* Underline animation */
-.nav-hover::after {
+/* .nav-hover::after {
   content: "";
   position: absolute;
   width: 0;
@@ -40,7 +134,7 @@ body {
 
 .nav-hover:hover::after {
   width: 100%;
-}
+} */
 
 
 /* company logo slider */
@@ -58,7 +152,8 @@ body {
 }
 
 .logo-track img {
-  height: 90px;      /* FIXED SIZE */
+  height: 90px;
+  /* FIXED SIZE */
   width: auto;
   object-fit: contain;
 }
@@ -67,6 +162,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -121,6 +217,7 @@ body {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -132,6 +229,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -159,4 +257,19 @@ body {
 .cart-qty {
   min-width: 120px;
   justify-content: center;
+}
+
+
+
+/* Contact Css */
+
+.contact-section {
+  min-height: 90vh;
+  /* fallback */
+  min-height: 90svh;
+  /* mobile safe viewport */
+  min-height: 90dvh;
+  /* dynamic viewport */
+  display: flex;
+  align-items: center;
 }

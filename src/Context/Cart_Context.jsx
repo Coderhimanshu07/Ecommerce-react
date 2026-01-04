@@ -1,47 +1,61 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState(() => {
+        const stored = localStorage.getItem("cartItems");
+        return stored ? JSON.parse(stored) : [];
+    });
 
-    // Add to cart
+    const [toastMsg, setToastMsg] = useState("");
+
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
+
+    // ✅ Add to cart
     const addToCart = (product) => {
-        const existing = cartItems.find(item => item.id === product.id);
+        setCartItems((prev) => {
+            const existing = prev.find((item) => item.id === product.id);
 
-        if (existing) {
-            setCartItems(
-                cartItems.map(item =>
+            if (existing) {
+                return prev.map((item) =>
                     item.id === product.id
                         ? { ...item, qty: item.qty + 1 }
                         : item
-                )
-            );
-        } else {
-            setCartItems([...cartItems, { ...product, qty: 1 }]);
-        }
+                );
+            }
+
+            return [...prev, { ...product, qty: 1 }];
+        });
+
+        // 🔔 Toast message trigger
+        setToastMsg("Item added to cart ✅");
+
+        // auto hide after 2 sec
+        setTimeout(() => setToastMsg(""), 2000);
     };
 
-    // Remove item
     const removeFromCart = (id) => {
-        setCartItems(cartItems.filter(item => item.id !== id));
+        setCartItems((prev) => prev.filter((item) => item.id !== id));
     };
 
-    // Quantity change
     const updateQty = (id, type) => {
-        setCartItems(
-            cartItems.map(item =>
-                item.id === id
-                    ? {
-                        ...item,
-                        qty: type === "inc" ? item.qty + 1 : item.qty - 1
-                    }
-                    : item
-            ).filter(item => item.qty > 0)
+        setCartItems((prev) =>
+            prev
+                .map((item) =>
+                    item.id === id
+                        ? {
+                            ...item,
+                            qty: type === "inc" ? item.qty + 1 : item.qty - 1,
+                        }
+                        : item
+                )
+                .filter((item) => item.qty > 0)
         );
     };
 
-    // Total price
     const total = cartItems.reduce(
         (sum, item) => sum + item.price * item.qty,
         0
@@ -49,10 +63,16 @@ const CartProvider = ({ children }) => {
 
     return (
         <CartContext.Provider
-            value={{ cartItems, addToCart, removeFromCart, updateQty, total }}
+            value={{
+                cartItems,
+                addToCart,
+                removeFromCart,
+                updateQty,
+                total,
+                toastMsg,
+            }}
         >
             {children}
-
         </CartContext.Provider>
     );
 };

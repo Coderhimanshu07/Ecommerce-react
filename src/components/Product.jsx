@@ -20,6 +20,7 @@ import Belt_c from '../assets/Belt_cover.png';
 import Teeth from '../assets/Teeth.png';
 import Needle from '../assets/Needle.png';
 import { Productdata } from '../Context/Product-Context';
+import Footer from './Footer';
 
 
 function Product() {
@@ -29,59 +30,63 @@ function Product() {
 
 
     return (
-        <section className="bg-light py-5">
-            <div className="container ">
-                <h2 className="text-center mb-4">
-                    Checkout All Products
-                </h2>
+        <>
+            <section className="bg-light py-5">
+                <div className="container ">
+                    <h2 className="text-center mb-4">
+                        Checkout All Products
+                    </h2>
 
-                <div className="row gap-4 justify-content-center">
-                    {products.map((item, index) => (
-                        <div
-                            className="col-12 col-sm-6 col-md-3"
-                            key={index}
-                        >
-                            <div className="card h-100 w-100 text-center shadow-sm rounded-4 border-3">
+                    <div className="row gap-4 justify-content-center">
+                        {products.map((item, index) => (
+                            <div
+                                className="col-12 col-sm-6 col-md-3"
+                                key={index}
+                            >
+                                <div className="card h-100 w-100 text-center shadow-sm rounded-4 border-3">
 
-                                {/* Image */}
-                                <img
-                                    src={item.image}
-                                    alt={item.name}
-                                    className="card-img-top"
-                                    style={{
-                                        height: "160px",
-                                        objectFit: "contain",
-                                        padding: "10px"
-                                    }}
-                                />
+                                    {/* Image */}
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="card-img-top"
+                                        style={{
+                                            height: "160px",
+                                            objectFit: "contain",
+                                            padding: "10px"
+                                        }}
+                                    />
 
-                                {/* Content */}
-                                <div className="card-body d-flex flex-column">
-                                    <h6 className="card-title">
-                                        {item.name}
-                                    </h6>
+                                    {/* Content */}
+                                    <div className="card-body d-flex flex-column">
+                                        <h6 className="card-title">
+                                            {item.name}
+                                        </h6>
 
-                                    <p className="fw-bold text-success mb-3">
+                                        <p className="fw-bold text-success mb-3">
 
-                                        ₹{item.price}
-                                    </p>
+                                            ₹{item.price}
+                                        </p>
 
-                                    <div className="container mt-auto px-0 d-flex gap-2">
-                                        <Link to={`/product/${item.id}`} className="btn btn-dark w-50">
-                                            View Details
-                                        </Link>
-                                        <button onClick={() => addToCart(item)} className="btn btn-warning  w-50">
-                                            Add to Cart
-                                        </button>
+                                        <div className="container mt-auto px-0 d-flex gap-2">
+                                            <Link to={`/product/${item.id}`} className="btn btn-dark w-50">
+                                                View Details
+                                            </Link>
+                                            <button onClick={() => addToCart(item)} className="btn btn-warning  w-50">
+                                                Add to Cart
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <Footer />
+        </>
     );
 }
 

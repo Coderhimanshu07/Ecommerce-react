@@ -37,7 +37,7 @@ function Product() {
                         Checkout All Products
                     </h2>
 
-                    <div className="row gap-4 justify-content-center">
+                    <div className="row gap-3 g-md-1 justify-content-center">
                         {products.map((item, index) => (
                             <div
                                 className="col-12 col-sm-6 col-md-3"

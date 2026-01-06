@@ -25,9 +25,9 @@ function Categories() {
           </h2>
 
           <div className="border border-3 rounded-5 p-4">
-            <div className="row gap-5 g-md-4 text-center justify-content-center ">
+            <div className="row gap-3 g-md-1 text-center justify-content-center ">
               {Category.map((item, index) => (
-                <div className="col-6 col-sm-4 col-md-3 col-lg-2" key={index}>
+                <div className="col-8 col-sm-6 col-md-4 col-lg-2" key={index}>
                   <img src={item.image}
                     alt="Sewing Machine Spare Parts"
                     className="img-fluid w-100 rounded-4 mb-4 border border-4"

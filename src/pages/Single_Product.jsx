@@ -2,19 +2,8 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../Context/Cart_Context';
-// importing the images there 
-import bb3 from '../assets/3_bbn.png';
-import ndlP from '../assets/needle_plate.png';
-import bb from '../assets/bb_case.png';
-import belts from '../assets/belts.png';
-import motors from '../assets/motors.png';
-import ndlP2 from '../assets/2_needle_plate.png';
-import U_motors from '../assets/Usha_Motors.png';
-import belts2 from '../assets/2_belts.png';
-import Shuttle from '../assets/Shuttle.png';
-import Belt_c from '../assets/Belt_cover.png';
-import Teeth from '../assets/Teeth.png';
-import Needle from '../assets/Needle.png';
+
+// Importing Product Data Context
 import { Productdata } from '../Context/Product-Context';
 
 
@@ -34,13 +23,13 @@ function Single_Product() {
   return (
     <>
       <div className="container my-5">
-        <div className="row align-items-center">
+        <div className="row">
 
           {/* IMAGE SECTION */}
           <div className="col-md-6">
             <img
               src={product.image}
-              className="img-fluid rounded shadow w-100 h-75"
+              className="img-fluid rounded shadow w-100 h-100"
             />
           </div>
 

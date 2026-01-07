@@ -64,7 +64,7 @@ function Footer() {
             </div>
 
             {/* Developer */}
-            <div className="col-6 col-lg-2 text-center">
+            <div className="col-12 col-lg-3 text-center">
               <h5>Developed & Maintenance by</h5>
               <img
                 src={ChLogo2}

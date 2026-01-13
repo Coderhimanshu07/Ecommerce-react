@@ -35,8 +35,11 @@ function Single_Product() {
 
           {/* DETAILS SECTION */}
           <div className="col-md-6">
-            <h2>{product.name}</h2>
-            <h4 className="text-success mb-3">₹ {product.price}</h4>
+            <h4 className="mb-3">
+              <span className="text-danger text-decoration-line-through">₹ {product.oldprice}</span>
+              <span className="text-success ms-2">₹ {product.price}</span>
+            </h4>
+
 
             <p>
               {product.info}

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import logo from "../assets/logo.png";
 import { NavLink, Link } from "react-router-dom";
+import { CartContext } from "../Context/Cart_Context";
 
 /* ======================
    SVG CART LOGO
@@ -36,12 +37,14 @@ const CartLogo = () => (
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartCount } = useContext(CartContext)
 
   const Navlinks = [
     { label: "Home", link: "/" },
+    { label: "About", link: "/about" },
     { label: "Products", link: "/product" },
     { label: "Contact", link: "/contact" },
-    { label: "About", link: "/about" },
+
   ];
 
   const activeClass = ({ isActive }) =>
@@ -82,11 +85,22 @@ function Header() {
           </ul>
 
           {/* CART LOGO + LOGIN (DESKTOP) */}
+
           <div className="d-none d-lg-flex align-items-center gap-3">
 
+
             {/* CART SVG LOGO */}
-            <Link to="/cart" title="Cart">
+            <Link className="position-relative" to="/cart" title="Cart">
               <CartLogo />
+              <span className="badge bg-warning text-dark rounded-pill position-absolute top-0 start-100 translate-middle p-2">{cartCount}</span>
+            </Link>
+
+            {/* REGISTER */}
+            <Link
+              to="/signup"
+              className="btn btn-outline-warning rounded-pill px-3"
+            >
+              Register
             </Link>
 
             {/* LOGIN */}
@@ -96,6 +110,8 @@ function Header() {
             >
               Login
             </Link>
+
+
 
           </div>
         </div>
@@ -148,7 +164,15 @@ function Header() {
           ))}
         </ul>
 
-        <div className="text-center mt-4">
+        <div className="text-center mt-4 gap-2 d-flex flex-column">
+          <Link
+            to="/signup"
+
+            onClick={closeMenu}
+            className="btn btn-warning rounded-pill px-4"
+          >
+            Register
+          </Link>
           <Link
             to="/login"
             onClick={closeMenu}

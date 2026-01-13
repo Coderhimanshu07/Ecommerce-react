@@ -36,9 +36,25 @@ function Home() {
 
             {/* TEXT */}
             <div className="col-12 col-md-6 order-2 order-md-1 py-5 pt-4 mt-5">
-              <h1 className="fw-bold fs-1 fs-md-2">
-                Mechanical Sewing Machine Spare Parts <br /> High-Quality Components <br /> For Smooth & Long-Lasting Performance
+              <h1 className="fw-bold fs-1 fs-md-2 lh-sm lh-md-base overflow-hidden">
+
+                <span className="d-block d-md-inline 
+                   fs-2 fs-md-3 
+                   text-md-nowrap">
+                  Mechanical Sewing Machine Spare Parts
+                </span>
+
+                <span className="d-block d-md-inline">
+                  <br className="d-none d-md-block" />
+                  High-Quality Components
+                </span>
+
+                <span className="d-block">
+                  For Smooth & Long-Lasting Performance
+                </span>
+
               </h1>
+
               <p className="mt-2 fs-6 fs-md-5">
                 Mechanical sewing machine spare parts are essential for maintaining the accuracy, durability, and smooth functioning of traditional sewing machines. These parts include needles, bobbins, shuttle hooks, presser feet, belts, gears, tension assemblies, and other vital components that ensure consistent stitching and reliable performance.
               </p>

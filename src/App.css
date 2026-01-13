@@ -34,6 +34,29 @@
   width: 100%;
 }
 
+/* price CSS */
+
+.old-price {
+  position: relative;
+  display: inline-block;
+  color: #6c757d;
+  /* Bootstrap text-muted */
+}
+
+.old-price::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 2px;
+  background: #dc3545;
+  /* Bootstrap danger color */
+  transform: rotate(-15deg);
+}
+
+
+
 
 /* Cart logo */
 
@@ -109,33 +132,6 @@ body {
   transition: transform 0.45s ease-in-out, opacity 0.35s ease;
 }
 
-/* Hover effect for links */
-/* .nav-hover {
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-hover:hover {
-  color: #ffffff !important;
-} */
-
-/* Underline animation */
-/* .nav-hover::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 50%;
-  bottom: -4px;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.nav-hover:hover::after {
-  width: 100%;
-} */
-
 
 /* company logo slider */
 
@@ -182,12 +178,20 @@ body {
 /* shared wrapper */
 .auth-wrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  /* fallback */
+  min-height: 93svh;
+  /* mobile-correct */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-x: hidden;
 }
+
 
 /* shared card */
 .auth-card {
-  width: 100%;
+  width: 99%;
   max-width: 420px;
   background: #fff;
 }

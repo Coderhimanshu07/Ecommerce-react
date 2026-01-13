@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import ChLogo2 from "../assets/ChLogo2.png";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link, Links } from "react-router-dom";
 
 function Footer() {
   return (
@@ -36,9 +37,9 @@ function Footer() {
             <div className="col-6 col-lg-2 text-center">
               <h5>Useful Links</h5>
               <ul className="list-unstyled">
-                <li><a href="#" className="text-secondary text-decoration-none">Products</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">About Us</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Contact</a></li>
+                <li><Link to="/product" className="text-secondary text-decoration-none">Products</Link></li>
+                <li><Link to="/about" className="text-secondary text-decoration-none">About Us</Link></li>
+                <li><Link to="/contact" className="text-secondary text-decoration-none">Contact</Link></li>
               </ul>
             </div>
 
@@ -46,10 +47,10 @@ function Footer() {
             <div className="col-6 col-lg-2 text-center">
               <h5>Category</h5>
               <ul className="list-unstyled">
-                <li><a href="#" className="text-secondary text-decoration-none">Needles</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Motors</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Bobbin</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Belts</a></li>
+                <li><a href="/categories/Needle%20Plate" className="text-secondary text-decoration-none">Needles</a></li>
+                <li><a href="/categories/Motors" className="text-secondary text-decoration-none">Motors</a></li>
+                <li><a href="/categories/Bobbin%20&%20case" className="text-secondary text-decoration-none">Bobbin</a></li>
+                <li><a href="/categories/Belts" className="text-secondary text-decoration-none">Belts</a></li>
               </ul>
             </div>
 
@@ -57,9 +58,9 @@ function Footer() {
             <div className="col-6 col-lg-2 text-center">
               <h5>Shop</h5>
               <ul className="list-unstyled">
-                <li><a href="#" className="text-secondary text-decoration-none">Needles</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Motors</a></li>
-                <li><a href="#" className="text-secondary text-decoration-none">Cases</a></li>
+                <li><a href="/categories/Needle%20Plate" className="text-secondary text-decoration-none">Needles</a></li>
+                <li><Link to="/products" className="text-secondary text-decoration-none">Motors</Link></li>
+                <li><Link to="/products" className="text-secondary text-decoration-none">Cases</Link></li>
               </ul>
             </div>
 
@@ -87,9 +88,9 @@ function Footer() {
             </p>
 
             <div className="d-flex gap-3">
-              <FaFacebookF />
-              <FaInstagram />
-              <FaTwitter />
+              <a href="https://www.facebook.com/anshikasewingmachine"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/anshikasewingmachine"><FaInstagram /></a>
+              <a href="https://twitter.com/anshikasewingmachine"><FaTwitter /></a>
             </div>
           </div>
         </div>

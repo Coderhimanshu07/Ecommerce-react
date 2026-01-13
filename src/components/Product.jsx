@@ -46,7 +46,7 @@ function Product() {
                                 <div className="card h-100 w-100 text-center shadow-sm rounded-4 border-3">
 
                                     {/* Image */}
-                                    <img
+                                    <Link to={`/product/${item.id}`} href=""><img
                                         src={item.image}
                                         alt={item.name}
                                         className="card-img-top"
@@ -56,6 +56,7 @@ function Product() {
                                             padding: "10px"
                                         }}
                                     />
+                                    </Link>
 
                                     {/* Content */}
                                     <div className="card-body d-flex flex-column">
@@ -63,10 +64,17 @@ function Product() {
                                             {item.name}
                                         </h6>
 
-                                        <p className="fw-bold text-success mb-3">
+                                        <div className='d-flex gap-2 align-items-center justify-content-center mb-3'>
+                                            <p className="text-danger text-decoration-line-through mb-3">
+                                                ₹{item.oldprice}
+                                            </p>
 
-                                            ₹{item.price}
-                                        </p>
+                                            <p className="fw-bold text-success mb-3">
+                                                ₹{item.price}
+                                            </p>
+
+
+                                        </div>
 
                                         <div className="container mt-auto px-0 d-flex gap-2">
                                             <Link to={`/product/${item.id}`} className="btn btn-dark w-50">

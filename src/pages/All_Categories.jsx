@@ -27,12 +27,12 @@ function All_Categories() {
 
   const { addToCart } = useContext(CartContext);
   const [Count, setCount] = useState(0)
-  console.log(Count);
 
 
   const products = useContext(Productdata);
 
   const value = useParams()
+
 
   const Filter_p = products.filter((Elem) => { return value.id === Elem.category })
 

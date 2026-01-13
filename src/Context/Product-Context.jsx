@@ -27,7 +27,8 @@ function ProductContext({ children }) {
             name: "4 Pcs Bobbin + 2 Bobbin Set For Brother , Usha , etc Sewings",
             image: bb,
             price: 159,
-            category: "Bobbin & case",
+            oldprice: 209,
+            category: "bobbin-case",
             info: "This 4 Pcs Bobbin + 2 Bobbin Set is a useful accessory designed for home sewing machines such as Brother, Usha, and other compatible models..."
         },
 
@@ -36,7 +37,8 @@ function ProductContext({ children }) {
             name: "Only Bobbin Set ( 3 Pcs ) For Mechanical Sewing Machines , Usha , Brother",
             image: bb3,
             price: 134,
-            category: "Bobbin & case",
+            oldprice: 184,
+            category: "bobbin-case",
             info: "The Only Bobbin Set (3 Pcs) for Mechanical Sewing Machines is a practical accessory designed for Usha, Brother..."
         },
 
@@ -45,7 +47,8 @@ function ProductContext({ children }) {
             name: "SSS SV Normal Sewing Machine Shuttle Race (Naal)",
             image: Shuttle,
             price: 289,
-            category: "Bobbin & case",
+            oldprice: 339,
+            category: "bobbin-case",
             info: "The SSS SV Normal Sewing Machine Shuttle Race (Naal) is an essential component for domestic sewing machines..."
         },
 
@@ -54,7 +57,8 @@ function ProductContext({ children }) {
             name: "SHUTTLE | Sewing Needle Compact with Threader Set of 25 peices",
             image: Needle,
             price: 81,
-            category: "Bobbin & case",
+            oldprice: 105,
+            category: "bobbin-case",
             info: "The SHUTTLE Sewing Needle Compact with Threader Set (25 Pieces) is a convenient and versatile hand-sewing kit..."
         },
 
@@ -65,7 +69,8 @@ function ProductContext({ children }) {
             name: "Single Needle Plate For SEWING MACHINE OF USHA, Brother",
             image: ndlP,
             price: 199,
-            category: "Needle Plate",
+            oldprice: 249,
+            category: "needle-plate",
             info: "The Single Needle Plate for Sewing Machine is a practical and essential spare part designed for Usha, Brother..."
         },
 
@@ -74,7 +79,8 @@ function ProductContext({ children }) {
             name: "2 Pcs Needle Plate Set For Sewing Machine",
             image: ndlP2,
             price: 250,
-            category: "Needle Plate",
+            oldprice: 280,
+            category: "needle-plate",
             info: "The 2 Pcs Needle Plate Set for Sewing Machines is a useful replacement accessory designed for various household sewing machines..."
         },
 
@@ -85,6 +91,7 @@ function ProductContext({ children }) {
             name: "SINGLE PIECE MINI BELT REGULAR SIZE FOR SEWING MACHINES",
             image: belts,
             price: 70,
+            oldprice: 100,
             category: "Belts",
             info: "The Single Piece Mini Belt (Regular Size) for Sewing Machines is an important replacement part used in many household sewing machines..."
         },
@@ -94,6 +101,7 @@ function ProductContext({ children }) {
             name: "Sewing Machine Motor Braded/Grooved Belt (6 x 375 mm)",
             image: belts2,
             price: 120,
+            oldprice: 150,
             category: "Belts",
             info: "The Sewing Machine Motor Braided/Grooved Belt (6 × 375 mm) – 2 Pieces is a durable and reliable replacement accessory..."
         },
@@ -114,6 +122,7 @@ function ProductContext({ children }) {
             name: "MINI SEWING MACHINE MOTOR (COPPER WINDING) WITH SPEED CONTROLLER",
             image: motors,
             price: 1099,
+            oldprice: 1199,
             category: "Motors",
             info: "The Mini Sewing Machine Motor (Copper Winding) with Speed Controller is a reliable and efficient power unit..."
         },
@@ -123,6 +132,7 @@ function ProductContext({ children }) {
             name: "USHA Metal Sv Domestic Sewing Machine Motor 1/20 Hp",
             image: U_motors,
             price: 1430,
+            oldprice: 1550,
             category: "Motors",
             info: "The USHA Metal SV Domestic Sewing Machine Motor (1/20 HP) is a sturdy and reliable motor designed for home sewing machines..."
         },
@@ -134,7 +144,8 @@ function ProductContext({ children }) {
             name: "FEED DOG | Model : JZ-12603 44 (17 TEETH)",
             image: Teeth,
             price: 45,
-            category: "Bobbin & case",
+            oldprice: 60,
+            category: "bobbin-case",
             info: "The Feed Dog (Daata) – Model JZ-12603 44 (17 Teeth) is an important component used in sewing machines..."
         }
 

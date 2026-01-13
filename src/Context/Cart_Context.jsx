@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+    const [cartCount, setCartCount] = useState(0);
     const [cartItems, setCartItems] = useState(() => {
         const stored = localStorage.getItem("cartItems");
         return stored ? JSON.parse(stored) : [];
@@ -30,6 +31,7 @@ const CartProvider = ({ children }) => {
             return [...prev, { ...product, qty: 1 }];
         });
 
+        setCartCount((prevCount) => prevCount + 1);
         // 🔔 Toast message trigger
         setToastMsg("Item added to cart ✅");
 
@@ -39,6 +41,7 @@ const CartProvider = ({ children }) => {
 
     const removeFromCart = (id) => {
         setCartItems((prev) => prev.filter((item) => item.id !== id));
+        setCartCount((prevCount) => prevCount - 1);
     };
 
     const updateQty = (id, type) => {
@@ -70,6 +73,7 @@ const CartProvider = ({ children }) => {
                 updateQty,
                 total,
                 toastMsg,
+                cartCount,
             }}
         >
             {children}

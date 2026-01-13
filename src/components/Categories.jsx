@@ -10,10 +10,10 @@ import Footer from './Footer';
 
 function Categories() {
   const Category = [
-    { name: "Bobbin & case", image: bb },
-    { name: "Needle Plate", image: ndlP },
-    { name: "Belts", image: belts },
-    { name: "Motors", image: motors },
+    { name: "Bobbin & case", url: "bobbin-case", image: bb },
+    { name: "Needle Plate", url: "needle-plate", image: ndlP },
+    { name: "Belts", url: "Belts", image: belts },
+    { name: "Motors", url: "Motors", image: motors },
   ]
   return (
     <>
@@ -28,12 +28,14 @@ function Categories() {
             <div className="row gap-3 g-md-1 text-center justify-content-center ">
               {Category.map((item, index) => (
                 <div className="col-8 col-sm-6 col-md-4 col-lg-2" key={index}>
-                  <img src={item.image}
-                    alt="Sewing Machine Spare Parts"
-                    className="img-fluid w-100 rounded-4 mb-4 border border-4"
-                    style={{ maxHeight: "180px", objectFit: "contain" }}
-                  />
-                  <Link to={`/categories/${item.name}`} className="btn btn-outline-dark w-100 py-2 rounded-pill fw-semibold">
+                  <Link to={`/categories/${item.name}`}>
+                    <img src={item.image}
+                      alt="Sewing Machine Spare Parts"
+                      className="img-fluid w-100 rounded-4 mb-4 border border-4"
+                      style={{ maxHeight: "180px", objectFit: "contain" }}
+                    />
+                  </Link>
+                  <Link to={`/categories/${item.url}`} className="btn btn-outline-dark w-100 py-2 rounded-pill fw-semibold">
                     {item.name}
                   </Link>
                 </div>

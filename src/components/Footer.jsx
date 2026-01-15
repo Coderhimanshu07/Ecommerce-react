@@ -29,7 +29,7 @@ function Footer() {
                 href="mailto:info.store.anshika@gmail.com"
                 className="text-secondary text-decoration-none" style={{ textAlign: "justify" }}
               >
-                info.store.anshika@gmail.com
+                info@anshikastore.com
               </a>
             </div>
 

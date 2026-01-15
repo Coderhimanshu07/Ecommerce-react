@@ -8,6 +8,9 @@ import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Testmonials from '../components/Testmonials';
+import Featured_products from '../components/Featured_product';
+import Testimonials from '../components/Testmonials';
+import Faqs from '../components/FAQ';
 
 
 function Home() {
@@ -70,8 +73,16 @@ function Home() {
       {/* Importing categories */}
       <Categories />
 
-      {/* Importing Testmonials */}
-      <Testmonials />
+      {/* Importing Featured products element */}
+      <Featured_products />
+
+      {/* Importing Testimonials */}
+      <Testimonials />
+
+      {/* Importing The FAQ's There */}
+      <Faqs />
+
+      {/* Importing Footer */}
       <Footer />
     </>
   )

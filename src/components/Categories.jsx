@@ -20,15 +20,15 @@ function Categories() {
       {/* CATEGORIES */}
       <section className="py-4 py-md-5">
         <div className="container">
-          <h2 className="text-center mb-4 fs-2 fs-md-3">
+          <h1 className="text-center mb-4 fs-2 fs-md-3 fw-bold">
             Shop by Category
-          </h2>
+          </h1>
 
           <div className="border border-3 rounded-5 p-4">
             <div className="row gap-3 g-md-1 text-center justify-content-center ">
               {Category.map((item, index) => (
                 <div className="col-8 col-sm-6 col-md-4 col-lg-2" key={index}>
-                  <Link to={`/categories/${item.name}`}>
+                  <Link to={`/categories/${item.url}`}>
                     <img src={item.image}
                       alt="Sewing Machine Spare Parts"
                       className="img-fluid w-100 rounded-4 mb-4 border border-4"

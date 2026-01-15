@@ -1,41 +1,68 @@
-import React from 'react'
+import React from 'react';
 
-function Featured_product() {
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+import jack from '../assets/jack.png';
+import juki from '../assets/juki.png';
+import siruba2 from '../assets/siruba2.png';
+
+function Featured_products() {
     return (
         <>
-            {/* FEATURED PRODUCTS */}
-            <section className="bg-light py-4 py-md-5">
-                <div className="container">
-                    <h2 className="text-center mb-4 fs-5 fs-md-3">
-                        Featured Spare Parts
-                    </h2>
+            <h1 className='container fw-bold text-center my-1 mb-4'>Our Major Trust With</h1>
 
-                    <div className="row g-3 g-md-4">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div
-                                className="col-12 col-sm-6 col-md-4 col-lg-3"
-                                key={item}
-                            >
-                                <div className="card h-100 text-center shadow-sm">
-                                    <div className="card-body d-flex flex-column">
-                                        <h6 className="card-title">
-                                            Sewing Machine Part
-                                        </h6>
-                                        <p className="fw-bold text-success mb-3">
-                                            ₹499
-                                        </p>
-                                        <button className="btn btn-dark rounded-pill mt-auto">
-                                            Add to Cart
-                                        </button>
-                                    </div>
-                                </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-4 mb-4">
+                        <div className="card h-100">
+                            <span className='p-5'>
+                                <img
+                                    src={jack}
+                                    className="card-img-top"
+                                    alt="Customer Satisfaction"
+                                />
+                            </span>
+                            <div className="card-body text-center">
+                                <h5 className="card-title">Customer Satisfaction</h5>
+                                <p className="card-text">We prioritize customer satisfaction and provide excellent service.</p>
                             </div>
-                        ))}
+                        </div>
+                    </div>
+                    <div className="col-md-4 mb-4">
+                        <div className="card h-100">
+                            <span className='p-5'>
+                                <img
+                                    src={juki}
+                                    className="card-img-top"
+                                    alt="Customer Satisfaction"
+                                />
+                            </span>
+                            <div className="card-body text-center">
+                                <h5 className="card-title">Quality Assurance</h5>
+                                <p className="card-text">All products undergo rigorous quality checks before delivery.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4 mb-4">
+                        <div className="card h-100">
+                            <span className='p-5'>
+                                <img
+                                    src={siruba2}
+                                    className="card-img-top"
+                                    alt="Customer Satisfaction"
+                                />
+                            </span>
+                            <div className="card-body text-center">
+                                <h5 className="card-title">Fast Delivery</h5>
+                                <p className="card-text">We ensure timely delivery of all orders to meet your needs.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </>
     )
 }
 
-export default Featured_product
+export default Featured_products

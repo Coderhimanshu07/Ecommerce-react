@@ -49,6 +49,7 @@ function Product() {
                                     <Link to={`/product/${item.id}`} href=""><img
                                         src={item.image}
                                         alt={item.name}
+
                                         className="card-img-top"
                                         style={{
                                             height: "160px",

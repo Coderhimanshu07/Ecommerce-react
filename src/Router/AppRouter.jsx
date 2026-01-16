@@ -11,6 +11,7 @@ import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Single_Product from '../pages/Single_Product';
 import Categories from '../pages/All_Categories';
+import Billing from '../pages/Billing';
 
 function AppRouter() {
     return (
@@ -26,6 +27,7 @@ function AppRouter() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/categories/:id" element={<Categories />} />
+                <Route path="/Billing" element={<Billing />} />
             </Routes>
         </>
     );

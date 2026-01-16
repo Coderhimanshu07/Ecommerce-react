@@ -110,7 +110,8 @@ function ProductContext({ children }) {
             id: 9,
             name: "Belt Cover Kansai Faltbed Interlock (Flatlock) Machine",
             image: Belt_c,
-            price: 250,
+            price: 249,
+            oldprice: 299,
             category: "Belts",
             info: "The Belt Cover for Kansai Flatbed Interlock (Flatlock) Machine is a protective accessory specifically designed to fit the Kansai Special WX-12..."
         },

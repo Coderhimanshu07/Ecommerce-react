@@ -5,6 +5,7 @@ import { CartContext } from '../Context/Cart_Context';
 
 // Importing Product Data Context
 import { Productdata } from '../Context/Product-Context';
+import Footer from '../components/Footer';
 
 
 
@@ -36,6 +37,7 @@ function Single_Product() {
           {/* DETAILS SECTION */}
           <div className="col-md-6">
             <h4 className="mb-3">
+              <h2 className=''>{product.name}</h2>
               <span className="text-danger text-decoration-line-through">₹ {product.oldprice}</span>
               <span className="text-success ms-2">₹ {product.price}</span>
             </h4>
@@ -55,6 +57,8 @@ function Single_Product() {
 
         </div>
       </div>
+
+      <Footer />
     </>
 
   )

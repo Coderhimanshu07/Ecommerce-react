@@ -70,7 +70,10 @@ function All_Categories() {
                 <p className="text-muted small flex-grow-1">
                   {item.info.slice(0, 90)}...
                 </p>
-                <h5 className="text-success">₹{item.price}</h5>
+                <span className='d-flex gap-2'>
+                  <h5 className="text-danger text-decoration-line-through">₹{item.oldprice}</h5>
+                  <h5 className="text-success">₹{item.price}</h5>
+                </span>
               </div>
 
               <div className="card-footer bg-white border-0 d-flex gap-2">

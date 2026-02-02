@@ -1,0 +1,279 @@
+/* Header CSS */
+
+
+/* new */
+
+/* ===== NAVBAR UNDERLINE HOVER EFFECT ===== */
+
+.nav-hover {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* underline hidden by default */
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffc107;
+  /* yellow underline */
+  transition: width 0.3s ease-in-out;
+}
+
+/* hover effect */
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* active route underline */
+.active-link::after {
+  width: 100%;
+}
+
+/* price CSS */
+
+.old-price {
+  position: relative;
+  display: inline-block;
+  color: #6c757d;
+  /* Bootstrap text-muted */
+}
+
+.old-price::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 2px;
+  background: #dc3545;
+  /* Bootstrap danger color */
+  transform: rotate(-15deg);
+}
+
+
+
+
+/* Cart logo */
+
+
+.cart-logo {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cart-logo:hover {
+  transform: scale(1.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+.nav-hover {
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+/* underline base */
+.nav-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+/* hover effect */
+.nav-hover:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK = HOVER JAISE HI DIKHE */
+.active-link {
+  color: white !important;
+}
+
+.active-link::after {
+  width: 100%;
+
+}
+
+
+/* Body CSS */
+body {
+  padding-top: 70px;
+}
+
+
+
+
+
+
+
+
+
+/* Smooth slide animation */
+.custom-offcanvas {
+  transition: transform 0.45s ease-in-out, opacity 0.35s ease;
+}
+
+
+/* company logo slider */
+
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  height: 15vh;
+}
+
+.logo-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll-left 18s linear infinite;
+}
+
+.logo-track img {
+  height: 90px;
+  /* FIXED SIZE */
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Login / signup */
+
+/* shared wrapper */
+.auth-wrapper {
+  min-height: 100vh;
+  /* fallback */
+  min-height: 93svh;
+  /* mobile-correct */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-x: hidden;
+}
+
+
+/* shared card */
+.auth-card {
+  width: 99%;
+  max-width: 420px;
+  background: #fff;
+}
+
+/* button animation */
+.auth-btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* login animation */
+.login-animate {
+  animation: slideFromLeft 0.7s ease forwards;
+}
+
+/* signup animation */
+.signup-animate {
+  animation: slideFromRight 0.7s ease forwards;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.cart-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cart-left {
+  width: 50%;
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.cart-qty {
+  min-width: 120px;
+  justify-content: center;
+}
+
+
+
+/* Contact Css */
+
+.contact-section {
+  min-height: 90vh;
+  /* fallback */
+  min-height: 90svh;
+  /* mobile safe viewport */
+  min-height: 90dvh;
+  /* dynamic viewport */
+  display: flex;
+  align-items: center;
+}

@@ -18,7 +18,7 @@ const Checkout = () => {
     }
 
     const options = {
-      key: "pk_test_51SkNqcRppb1sP7I7JlGwPJnk8aWDa8Eqm39SOj6AkurQt90ptEAllbuhq8MKAdujyu7P96hyH8UDLRcm7hq6gwBO00s7v9yI3P",
+      key: "rzp_test_SDAiADIIzjE9TL",
       amount: totalAmount * 100,
       currency: "INR",
       name: "Anshika Sewing Machine Store",

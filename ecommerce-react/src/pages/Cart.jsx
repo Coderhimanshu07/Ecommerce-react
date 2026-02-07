@@ -71,7 +71,7 @@ function Cart() {
       <div className="text-end mt-3">
         <Link to="/Billing"
           className="btn btn-dark"
-          onClick={() => navigate("/checkout")}
+          onClick={() => navigate("")}
         >
           Proceed to Checkout
         </Link>

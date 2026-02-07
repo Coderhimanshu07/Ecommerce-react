@@ -47,9 +47,9 @@ function Footer() {
             <div className="col-6 col-lg-2 text-center">
               <h5>Category</h5>
               <ul className="list-unstyled">
-                <li><a href="/categories/Needle%20Plate" className="text-secondary text-decoration-none">Needles</a></li>
+                <li><a href="/categories/needle-plate" className="text-secondary text-decoration-none">Needles</a></li>
                 <li><a href="/categories/Motors" className="text-secondary text-decoration-none">Motors</a></li>
-                <li><a href="/categories/Bobbin%20&%20case" className="text-secondary text-decoration-none">Bobbin</a></li>
+                <li><a href="categories/bobbin-case" className="text-secondary text-decoration-none">Bobbin</a></li>
                 <li><a href="/categories/Belts" className="text-secondary text-decoration-none">Belts</a></li>
               </ul>
             </div>
@@ -58,9 +58,9 @@ function Footer() {
             <div className="col-6 col-lg-2 text-center">
               <h5>Shop</h5>
               <ul className="list-unstyled">
-                <li><a href="/categories/Needle%20Plate" className="text-secondary text-decoration-none">Needles</a></li>
-                <li><Link to="/products" className="text-secondary text-decoration-none">Motors</Link></li>
-                <li><Link to="/products" className="text-secondary text-decoration-none">Cases</Link></li>
+                <li><a href="categories/needle-plate" className="text-secondary text-decoration-none">Needles</a></li>
+                <li><Link to="categories/Motors" className="text-secondary text-decoration-none">Motors</Link></li>
+                <li><Link to="categories/bobbin-case" className="text-secondary text-decoration-none">Cases</Link></li>
               </ul>
             </div>
 

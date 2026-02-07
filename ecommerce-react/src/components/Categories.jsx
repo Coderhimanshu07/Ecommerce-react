@@ -45,6 +45,7 @@ function Categories() {
         </div>
       </section>
 
+      {/* <Footer /> */}
     </>
   )
 }

@@ -3,8 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-    const cart_count = localStorage.getItem("cartCount")
-    const [cartCount, setCartCount] = useState(cart_count ? parseInt(cart_count) : 0);
+
     const [cartItems, setCartItems] = useState(() => {
         const stored = localStorage.getItem("cartItems");
         return stored ? JSON.parse(stored) : [];
@@ -12,63 +11,59 @@ const CartProvider = ({ children }) => {
 
     const [toastMsg, setToastMsg] = useState("");
 
+    // 🔢 Auto cart count
+    const cartCount = cartItems.reduce(
+        (sum, item) => sum + item.qty,
+        0
+    );
+
+    // 💾 Save cart to localStorage
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        localStorage.setItem("cartCount", JSON.stringify(cartCount));
-    }, [cartItems, cartCount]);
+    }, [cartItems]);
 
-    // ✅ Add to cart
+    // ✅ Add to cart (FINAL FIX)
     const addToCart = (product) => {
         setCartItems((prev) => {
-            const existing = prev.find((item) => item.id === product.id);
+            const existing = prev.find(item => item.id === product.id);
 
             if (existing) {
-                return prev.map((item) =>
-                    item.id === product.id
-                        ? { ...item, qty: item.qty + 1 }
-                        : item
-                );
-
-                return () => {
-                    window.alert("Item is already in the cart");
-                    return [...prev];
-                }
+                setToastMsg("Item already exists ❌");
+                setTimeout(() => setToastMsg(""), 2000);
+                return prev;
             }
+
+            setToastMsg("Item added to cart ✅");
+            setTimeout(() => setToastMsg(""), 2000);
 
             return [...prev, { ...product, qty: 1 }];
         });
+    };
 
-        setCartCount((prevCount) => prevCount + 1);
-        // 🔔 Toast message trigger
-        setToastMsg("Item added to cart ✅");
-
-        // auto hide after 2 sec
+    // ❌ Remove from cart
+    const removeFromCart = (id) => {
+        setCartItems(prev => prev.filter(item => item.id !== id));
+        setToastMsg("Item removed from cart ❌");
         setTimeout(() => setToastMsg(""), 2000);
     };
 
-    const removeFromCart = (id) => {
-        setCartItems((prev) => prev.filter((item) => item.id !== id));
-        setCartCount((prevCount) => prevCount - 1);
-    };
-
+    // ➕ ➖ Update quantity
     const updateQty = (id, type) => {
-        setCartItems((prev) =>
+        setCartItems(prev =>
             prev
-                .map((item) =>
+                .map(item =>
                     item.id === id
                         ? {
                             ...item,
-                            qty: type === "inc" ? item.qty + 1 : item.qty - 1,
+                            qty: type === "inc" ? item.qty + 1 : item.qty - 1
                         }
                         : item
                 )
-                .filter((item) => item.qty > 0)
-        );
-        setCartCount((prevCount) =>
-            type === "inc" ? prevCount + 1 : prevCount - 1
+                .filter(item => item.qty > 0)
         );
     };
 
+    // 💰 Total amount
     const total = cartItems.reduce(
         (sum, item) => sum + item.price * item.qty,
         0
